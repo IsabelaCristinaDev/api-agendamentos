@@ -9,8 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name="funcionaria")
+@Table(name = "funcionaria")
 public class Funcionaria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,4 +31,7 @@ public class Funcionaria {
     @JoinColumn(name = "empresa_id", nullable = false)
     private Empresa empresa;
 
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 }
